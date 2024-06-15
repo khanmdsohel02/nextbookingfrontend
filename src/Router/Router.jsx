@@ -22,8 +22,6 @@ const router = createBrowserRouter([
       {
         path: "/hoteldetails/:id",
         element: <HotelDetails />,
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:5500/hotels/${params.id}`),
       },
       {
         path: "/register",
