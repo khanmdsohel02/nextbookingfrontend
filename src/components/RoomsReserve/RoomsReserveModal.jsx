@@ -12,7 +12,7 @@ const RoomsReserveModal = ({ hotelId, setOpenReserveModal }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const navigate = useNavigate();
 
-  const url = "https://nextbooking-ten.vercel.app";
+  const url = "https://nextbooking-ten.vercel.app/api";
   const { data } = useFetch(`${url}/hotels/room/${hotelId}`);
 
   // const { dates } = useContext(SearchContext);
@@ -69,7 +69,8 @@ const RoomsReserveModal = ({ hotelId, setOpenReserveModal }) => {
         })
       );
       setOpenReserveModal(false);
-      // navigate("/");
+      toast.success("Rooms reserved successfully");
+      navigate("/");
     } catch (err) {
       console.log(err);
     }

@@ -3,7 +3,7 @@ import useRootURL from "../../hooks/useRootURL";
 import "./FeaturedProperties.css";
 
 const FeaturedProperties = () => {
-  const url = "https://nextbooking-ten.vercel.app";
+  const url = "https://nextbooking-ten.vercel.app/api";
   const limit = 4;
   const featured = true;
   const { data, loading, error } = useFetch(

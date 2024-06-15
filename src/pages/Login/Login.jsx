@@ -18,7 +18,7 @@ const Login = () => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const url = "https://nextbooking-ten.vercel.app/auth/login";
+  const url = "https://nextbooking-ten.vercel.app/api/auth/login";
 
   const handleClick = async (e) => {
     e.preventDefault();

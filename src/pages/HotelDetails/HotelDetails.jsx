@@ -26,7 +26,7 @@ const HotelDetails = () => {
 
   // const { id } = useParams();
 
-  const url = "https://nextbooking-ten.vercel.app";
+  const url = "https://nextbooking-ten.vercel.app/api";
   const { data, loading, error, reFetch } = useFetch(`${url}/hotels/${id}`);
 
   const { dates, options } = useContext(SearchContext);

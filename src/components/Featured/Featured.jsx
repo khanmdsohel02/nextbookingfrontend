@@ -1,9 +1,9 @@
 import useFetch from "../../hooks/useFatch";
-import useRootURL from "../../hooks/useRootURL";
+
 import "./Featured.css";
 
 const Featured = () => {
-  const url = "https://nextbooking-ten.vercel.app";
+  const url = "https://nextbooking-ten.vercel.app/api";
 
   const { data, loading, error } = useFetch(
     `${url}/hotels/countbycity?cities=dhaka,khulna,Rajshahi`

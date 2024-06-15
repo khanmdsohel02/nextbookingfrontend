@@ -17,7 +17,7 @@ const HotelList = () => {
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const url = "https://nextbooking-ten.vercel.app";
+  const url = "https://nextbooking-ten.vercel.app/api";
 
   const { data, loading, error, reFetch } = useFetch(
     `${url}/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`

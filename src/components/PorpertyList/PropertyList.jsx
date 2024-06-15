@@ -2,7 +2,7 @@ import useFetch from "../../hooks/useFatch";
 import "./PropertyList.css";
 
 const PropertyList = () => {
-  const url = "https://nextbooking-ten.vercel.app";
+  const url = "https://nextbooking-ten.vercel.app/api";
   const { data, loading, error } = useFetch(`${url}/hotels/countbytype`);
 
   // console.log(data);
