@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Subscription from "../../components/Subscription/Subscription";
@@ -9,30 +9,22 @@ import {
   FaCircleXmark,
   FaLocationDot,
 } from "react-icons/fa6";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFatch";
-import { SearchContext } from "../../context/SecarchContext";
 import { AuthContext } from "../../context/AuthContext";
 import RoomsReserveModal from "../../components/RoomsReserve/RoomsReserveModal";
+
 const HotelDetails = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
   const [openReserveModal, setOpenReserveModal] = useState(false);
-
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // const { id } = useParams();
-
   const url = "https://nextbooking-ten.vercel.app/api";
   const { data, loading, error, reFetch } = useFetch(`${url}/hotels/${id}`);
-
-  const { dates, options } = useContext(SearchContext);
-  // const startDate = dates[0]?.startDate?.getDate();
-  // const endDate = dates[0]?.endDate?.getDate();
-  // const days = endDate - startDate;
 
   const days =
     localStorage.getItem("endDate") - localStorage.getItem("startDate");

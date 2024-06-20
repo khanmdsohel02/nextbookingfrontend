@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useContext, useState } from "react";
 import useFetch from "../../hooks/useFatch";
 import "./RoomsReserveModal.css";
-import { SearchContext } from "../../context/SecarchContext";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaCircleXmark } from "react-icons/fa6";
