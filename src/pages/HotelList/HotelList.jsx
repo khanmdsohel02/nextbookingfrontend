@@ -48,11 +48,31 @@ const HotelList = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input
+              {/* <input
                 onChange={(e) => setDestination(e.target.value)}
                 placeholder={destination}
                 type="text"
-              />
+              /> */}
+              <select
+                name="city"
+                onChange={(e) => setDestination(e.target.value)}
+                className="select headerSearchInput"
+              >
+                <option disabled selected value={destination}>
+                  {destination}
+                </option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Chattogram">Chattogram</option>
+                <option value="Sylhet">Sylhet</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Bandarban">Bandarban</option>
+                <option value="Rangpur">Rangpur</option>
+                <option value="Kishoreganj">Kishoreganj</option>
+                <option value="Pabna">Pabna</option>
+                <option value="Narayanganj">Narayanganj</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Barishal">Barishal</option>
+              </select>
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>
@@ -123,13 +143,20 @@ const HotelList = () => {
             <button onClick={handleSearch}>Search</button>
           </div>
           <div className="listResult">
-            {loading ? (
-              "Data is Loading, please wait..."
+            {data.length === 0 ? (
+              <h1 className="noHotel">Coming soon</h1>
             ) : (
               <>
-                {data.map((item) => (
-                  <SearchItem item={item} key={item._id} />
-                ))}
+                {" "}
+                {loading ? (
+                  "Data is Loading, please wait..."
+                ) : (
+                  <>
+                    {data.map((item) => (
+                      <SearchItem item={item} key={item._id} />
+                    ))}
+                  </>
+                )}
               </>
             )}
           </div>

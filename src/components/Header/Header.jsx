@@ -23,6 +23,8 @@ const Header = ({ type }) => {
     },
   ]);
 
+  console.log(destination);
+
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
@@ -46,7 +48,6 @@ const Header = ({ type }) => {
   const handleSearch = () => {
     localStorage.setItem("startDate", dates[0].startDate.getDate());
     localStorage.setItem("endDate", dates[0].endDate.getDate());
-
     localStorage.setItem("room", options.room);
 
     dispatch({
@@ -96,18 +97,37 @@ const Header = ({ type }) => {
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FaBed className="headerIcon" />
-                <input
-                  type="text"
-                  placeholder="Where are you going?"
-                  className="headerSearchInput"
+
+                <select
+                  name="city"
                   onChange={(e) => setDestination(e.target.value)}
-                />
+                  className="select headerSearchInput text-slate-900"
+                  required
+                >
+                  <option disabled selected value="">
+                    Where are you going?
+                  </option>
+                  <option value="Dhaka">Dhaka</option>
+                  <option value="Chattogram">Chattogram</option>
+                  <option value="Sylhet">Sylhet</option>
+                  <option value="Rajshahi">Rajshahi</option>
+                  <option value="Bandarban">Bandarban</option>
+                  <option value="Rangpur">Rangpur</option>
+                  <option value="Kishoreganj">Kishoreganj</option>
+                  <option value="Pabna">Pabna</option>
+                  <option value="Narayanganj">Narayanganj</option>
+                  <option value="Khulna">Khulna</option>
+                  <option value="Barishal">Barishal</option>
+                </select>
               </div>
 
               <div className="headerSearchItem">
                 <FaCalendarDays className="headerIcon" />
                 <span
-                  onClick={() => setOpenDate(!openDate)}
+                  onClick={() => {
+                    setOpenDate(!openDate);
+                    setOpenOptions(false);
+                  }}
                   className="headerSearchText"
                 >
                   From{" "}
@@ -130,7 +150,10 @@ const Header = ({ type }) => {
               <div className="headerSearchItem">
                 <FaPerson className="headerIcon" />
                 <span
-                  onClick={() => setOpenOptions(!openOptions)}
+                  onClick={() => {
+                    setOpenOptions(!openOptions);
+                    setOpenDate(false);
+                  }}
                   className="headerSearchText"
                 >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
                 {openOptions && (

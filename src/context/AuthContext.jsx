@@ -54,11 +54,17 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
+
   const value = {
     user: state.user,
     loading: state.loading,
     error: state.error,
     dispatch,
+    handleLogout,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

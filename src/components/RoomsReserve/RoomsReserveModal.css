@@ -11,6 +11,8 @@
 }
 
 .reserveContainer {
+  max-width: 96vw;
+  margin: auto;
   background-color: white;
   padding: 20px;
   position: relative;
